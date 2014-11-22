@@ -77,7 +77,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/21/First-Blood/">First Blood</a>
+      <a class="article-title" href="/2014/11/21/First-Blood/">�ص�����������</a>
     </h1>
   
 
@@ -85,7 +85,86 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="��ô�����ص�����">��ô�����ص�����</h2>
+<p><strong>�ص�����</strong>��Ӧ�ź������õ���һ�ַ�ʽ—ֱ�ӵ��ã�ֱ�ӵ��ú��������⣬�������ǳ��õ����ַ�ʽ���������ַ�ʽд������һ����������һ��д�ͣ������͹̶��ˣ�ֻ�ܵ���һ�������ĺ��������ص���������������Ϊ���ӵ��ã�������ֻҪ�滻��ʵ�ʵ��õ��Ǹ������������ɲ�ͬ�Ĺ��ܡ���C�����У����ǿ������ú���ָ�����������滻��ֻҪ����ָ��ָ���ĺ������㶨���ͺá���java��û��ָ���ĸ������ֻ����interface��ʵ�֡�</p>
+<h2 id="java�����лص�������ʵ��">java�����лص�������ʵ��</h2>
+<p>java�Ļص����ýӿ�����ʵ�ʵĵ��ã���ʵ���Ͽ��Կ�����һ�ֺ�����̬��</p>
+<pre>
+<code>
+package com.lipan.callback;
+
+
+//�ص���ͨ�ýӿ�
+interface Callback{
+    public void execute();
+}
+
+//ģ��ʵ�����ɹ����ĺ���
+class RealMethod{
+    public static void doSomething(){
+        System.out.println("do some work");
+    }
+    public static void doOtherthing(){
+        System.out.println("do other work");
+    }
+}
+
+//������
+public class TestCallback {
+    public static void doCallback(Callback call){
+        call.execute();
+    }
+    public static void main(String[] args){
+        System.out.println("before callback");
+        doCallback(new Callback(){
+            public void execute(){
+                RealMethod.doSomething();
+            }
+        });
+        doCallback(new Callback(){
+            public void execute(){
+                RealMethod.doOtherthing();
+            }
+        });
+        System.out.println("after callback");
+    }
+}
+
+</code>
+</pre>
+
+<h2 id="C�����лص�������ʹ��">C�����лص�������ʹ��</h2>
+<p>C�������ú���ָ�룬������ʵ�ʾ���һ������ָ�룬����һ�������ĺ���ָ�룬������������typedef������һ�������ǿ��Կ����������ֺ�����Ϊ���������Ĺ����൱�ڻص��Ĺ��̡�</p>
+<pre>
+<code>
+#include "stdio.h"
+#include "stdlib.h"
+
+typedef void (*func)(void);
+
+void doCallback(func f){
+        f();
+    }
+
+void method1(void){
+    printf("call method1\n");
+    }
+void method2(void){
+    printf("call method2\n");
+    }
+
+int main(void){
+    printf("before\n");
+    doCallback(method1);
+    doCallback(method2);
+    printf("after\n");
+
+    return 0;
+    }
+
+</code>
+</pre>
+
       
     </div>
     <footer class="article-footer">
@@ -180,7 +259,7 @@
       <ul>
         
           <li>
-            <a href="/2014/11/21/First-Blood/">First Blood</a>
+            <a href="/2014/11/21/First-Blood/">�ص�����������</a>
           </li>
         
           <li>
