@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | lipan</title>
+  <title>Archives | ��������������</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="lipan">
+  <meta name="description" content="��ǧ����������">
 <meta property="og:type" content="website">
-<meta property="og:title" content="lipan">
+<meta property="og:title" content="��������������">
 <meta property="og:url" content="http://yoursite.com/archives/">
-<meta property="og:site_name" content="lipan">
-<meta property="og:description" content="lipan">
+<meta property="og:site_name" content="��������������">
+<meta property="og:description" content="��ǧ����������">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lipan">
-<meta name="twitter:description" content="lipan">
+<meta name="twitter:title" content="��������������">
+<meta name="twitter:description" content="��ǧ����������">
 
   
-    <link rel="alternative" href="/atom.xml" title="lipan" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="��������������" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -35,11 +35,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">lipan</a>
+        <a href="/" id="logo">��������������</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">lipan</a>
+          <a href="/" id="subtitle">�����Ĳ���</a>
         </h2>
       
     </div>
@@ -81,7 +81,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/21/First-Blood/">回调函数的理解</a>
+      <a class="article-title" href="/2014/11/21/First-Blood/">回调函数</a>
     </h1>
   
 
@@ -89,9 +89,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="怎么理解回调函数">怎么理解回调函数</h2>
+        <h3 id="怎么理解回调函数">怎么理解回调函数</h3>
 <p><strong>回调函数</strong>对应着函数调用的另一种方式—直接调用，直接调用很容易理解，就是我们常用的那种方式，但是这种方式写程序有一个问题就是一旦写就，程序就固定了，只能调用一个具体的函数。而回调函数则可以理解为间接调用，调用者只要替换的实际调用的那个函数就能完成不同的功能。在C语言中，我们可以利用函数指针完成这个替换，只要函数指针指向的函数满足定义就好。而java中没有指针的概念，我们只能用interface来实现。</p>
-<h2 id="java语言中回调函数的实现">java语言中回调函数的实现</h2>
+<h3 id="java语言中回调函数的实现">java语言中回调函数的实现</h3>
 <p>java的回调利用接口完成实际的调用，这实际上可以看作是一种函数多态。</p>
 <pre>
 <code>
@@ -137,7 +137,7 @@ public class TestCallback {
 </code>
 </pre>
 
-<h2 id="C语言中回调函数的使用">C语言中回调函数的使用</h2>
+<h3 id="C语言中回调函数的使用">C语言中回调函数的使用</h3>
 <p>C语言利用函数指针，函数名实际就是一个函数指针，定义一类特殊的函数指针，如下述代码的typedef定义的一样，我们可以看到，将这种函数作为参数传入的过程相当于回调的过程。</p>
 <pre>
 <code>
@@ -263,7 +263,7 @@ int main(void){
       <ul>
         
           <li>
-            <a href="/2014/11/21/First-Blood/">回调函数的理解</a>
+            <a href="/2014/11/21/First-Blood/">回调函数</a>
           </li>
         
           <li>
