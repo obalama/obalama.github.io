@@ -94,81 +94,12 @@
 <p><strong>回调函数</strong>对应着函数调用的另一种方式—直接调用，直接调用很容易理解，就是我们常用的那种方式，但是这种方式写程序有一个问题就是一旦写就，程序就固定了，只能调用一个具体的函数。而回调函数则可以理解为间接调用，调用者只要替换的实际调用的那个函数就能完成不同的功能。在C语言中，我们可以利用函数指针完成这个替换，只要函数指针指向的函数满足定义就好。而java中没有指针的概念，我们只能用interface来实现。</p>
 <h3 id="java语言中回调函数的实现">java语言中回调函数的实现</h3>
 <p>java的回调利用接口完成实际的调用，这实际上可以看作是一种函数多态。</p>
-<pre>
-<code>
-package com.lipan.callback;
-
-
-//回调的通用接口
-interface Callback{
-    public void execute();
-}
-
-//模拟实际完成工作的函数
-class RealMethod{
-    public static void doSomething(){
-        System.out.println("do some work");
-    }
-    public static void doOtherthing(){
-        System.out.println("do other work");
-    }
-}
-
-//测试类
-public class TestCallback {
-    public static void doCallback(Callback call){
-        call.execute();
-    }
-    public static void main(String[] args){
-        System.out.println("before callback");
-        doCallback(new Callback(){
-            public void execute(){
-                RealMethod.doSomething();
-            }
-        });
-        doCallback(new Callback(){
-            public void execute(){
-                RealMethod.doOtherthing();
-            }
-        });
-        System.out.println("after callback");
-    }
-}
-
-</code>
-</pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.lipan.callback;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//回调的通用接口</span></div><div class="line">interface Callback{</div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span>();</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">//模拟实际完成工作的函数</span></div><div class="line">class RealMethod{</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doSomething</span>(){</div><div class="line">		System.out.println(<span class="string">"do some work"</span>);</div><div class="line">	}</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doOtherthing</span>(){</div><div class="line">		System.out.println(<span class="string">"do other work"</span>);</div><div class="line">	}</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">//测试类</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestCallback</span> </span>{</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doCallback</span>(Callback call){</div><div class="line">		call.execute();</div><div class="line">	}</div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(String[] args){</div><div class="line">		System.out.println(<span class="string">"before callback"</span>);</div><div class="line">		doCallback(<span class="keyword">new</span> Callback(){</div><div class="line">			<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span>(){</div><div class="line">				RealMethod.doSomething();</div><div class="line">			}</div><div class="line">		});</div><div class="line">		doCallback(<span class="keyword">new</span> Callback(){</div><div class="line">			<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span>(){</div><div class="line">				RealMethod.doOtherthing();</div><div class="line">			}</div><div class="line">		});</div><div class="line">		System.out.println(<span class="string">"after callback"</span>);</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
 
 <h3 id="C语言中回调函数的使用">C语言中回调函数的使用</h3>
 <p>C语言利用函数指针，函数名实际就是一个函数指针，定义一类特殊的函数指针，如下述代码的typedef定义的一样，我们可以看到，将这种函数作为参数传入的过程相当于回调的过程。</p>
-<pre>
-<code>
-#include "stdio.h"
-#include "stdlib.h"
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "stdio.h"</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "stdlib.h"</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (*func)(<span class="keyword">void</span>);</div><div class="line"></div><div class="line"><span class="keyword">void</span> doCallback(func f){</div><div class="line">		f();</div><div class="line">	}</div><div class="line">	</div><div class="line"><span class="keyword">void</span> method1(<span class="keyword">void</span>){</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"call method1\n"</span>);</div><div class="line">	}</div><div class="line"><span class="keyword">void</span> method2(<span class="keyword">void</span>){</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"call method2\n"</span>);</div><div class="line">	}</div><div class="line">	</div><div class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>){</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"before\n"</span>);</div><div class="line">	doCallback(method1);</div><div class="line">	doCallback(method2);</div><div class="line">	<span class="built_in">printf</span>(<span class="string">"after\n"</span>);</div><div class="line">	</div><div class="line">	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">	}</div></pre></td></tr></table></figure>
 
-typedef void (*func)(void);
-
-void doCallback(func f){
-        f();
-    }
-
-void method1(void){
-    printf("call method1\n");
-    }
-void method2(void){
-    printf("call method2\n");
-    }
-
-int main(void){
-    printf("before\n");
-    doCallback(method1);
-    doCallback(method2);
-    printf("after\n");
-
-    return 0;
-    }
-
-</code>
-</pre>
 
       
     </div>
