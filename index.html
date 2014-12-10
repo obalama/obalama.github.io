@@ -67,6 +67,148 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-AspectJ" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/10/AspectJ/" class="article-date">
+  <time datetime="2014-12-10T14:30:13.000Z" itemprop="datePublished">12月 10 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/10/AspectJ/">基于注解的Aspect使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="AOP概念">AOP概念</h3>
+<p>AOP(面向切面编程)是一种解耦合的方法。在软件设计中，经常会出现类似于日志记录，安全认证等与主流程关系不大的需求，如果将这些需求和主流程混杂在一起，不仅后期难以维护，而且改动一次代码就得重新编译一次</p>
+<h3 id="Spring原生的AOP">Spring原生的AOP</h3>
+<p>使用起来太麻烦，但由于Spring设计的开放性，允许自定义的AOP，因此类似于AspectJ这样的AOP工具能派上用场，Aspect的易学易用，因此很适合在开发中应用。</p>
+<h3 id="AOP中的各种概念">AOP中的各种概念</h3>
+<p><em>pointcut</em> ： 切入点，定义需要切入的地方，aspect中一般可以用正则类似的配置。<br><em>jointpoint</em> : 虚拟概念，程序执行的一个精确点，一般用于指明未加入织入代码时的程序执行逻辑<br><em>advice</em> ： 具体的切面实现逻辑，如before ，after ，around ， afterReturning,afterThrowing.</p>
+<h3 id="AspectJ的各种写法">AspectJ的各种写法</h3>
+<p>AspectJ既可以用代码的方式编写，也可以用基于注解的方式编写，用基于代码的方式编写时，实际上是将pointcut和advice配置在一个单独的xml文件中，或者在java代码中定义。一个定义在xml中的例子如下。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	     <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	     <span class="attribute">xmlns:aop</span>=<span class="value">"http://www.springframework.org/schema/aop"</span></div><div class="line">	     <span class="attribute">xmlns:tx</span>=<span class="value">"http://www.springframework.org/schema/tx"</span></div><div class="line">	     <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd</span></div><div class="line">           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd</div><div class="line">           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"&gt;</div><div class="line">             </div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"userManager"</span> <span class="attribute">class</span>=<span class="value">"com.tgb.aop.UserManagerImpl"</span>/&gt;</span></div><div class="line">	</div><div class="line">	<span class="comment">&lt;!--&lt;bean id="aspcejHandler" class="com.tgb.aop.AspceJAdvice"/&gt;--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"xmlHandler"</span> <span class="attribute">class</span>=<span class="value">"com.tgb.aop.XMLAdvice"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">aop:config</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">aop:aspect</span> <span class="attribute">id</span>=<span class="value">"aspect"</span> <span class="attribute">ref</span>=<span class="value">"xmlHandler"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">aop:pointcut</span> <span class="attribute">id</span>=<span class="value">"pointUserMgr"</span> <span class="attribute">expression</span>=<span class="value">"execution(* com.tgb.aop.*.find*(..))"</span>/&gt;</span></div><div class="line">			</div><div class="line">			<span class="tag">&lt;<span class="title">aop:before</span> <span class="attribute">method</span>=<span class="value">"doBefore"</span>  <span class="attribute">pointcut-ref</span>=<span class="value">"pointUserMgr"</span>/&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">aop:after</span> <span class="attribute">method</span>=<span class="value">"doAfter"</span>  <span class="attribute">pointcut-ref</span>=<span class="value">"pointUserMgr"</span>/&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">aop:around</span> <span class="attribute">method</span>=<span class="value">"doAround"</span>  <span class="attribute">pointcut-ref</span>=<span class="value">"pointUserMgr"</span>/&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">aop:after-returning</span> <span class="attribute">method</span>=<span class="value">"doReturn"</span>  <span class="attribute">pointcut-ref</span>=<span class="value">"pointUserMgr"</span>/&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">aop:after-throwing</span> <span class="attribute">method</span>=<span class="value">"doThrowing"</span> <span class="attribute">throwing</span>=<span class="value">"ex"</span> <span class="attribute">pointcut-ref</span>=<span class="value">"pointUserMgr"</span>/&gt;</span></div><div class="line">			</div><div class="line">		<span class="tag">&lt;/<span class="title">aop:aspect</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">aop:config</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>可以看到清楚的pointcut和advice的定义。<br>注解同样可以完成这个功能，下面介绍使用注解形式Aspect的方法和需要注意的事项。</p>
+<h3 id="基于注解的AspectJ">基于注解的AspectJ</h3>
+<h2 id="首先需要引入相对应的jar包，一个典型的pom文件如下。">首先需要引入相对应的jar包，一个典型的pom文件如下。</h2>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span></div><div class="line">   	<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>spring<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">version</span>&gt;</span>2.5.6.SEC02<span class="tag">&lt;/<span class="title">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>spring-aspects<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">version</span>&gt;</span>2.5.6<span class="tag">&lt;/<span class="title">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">version</span>&gt;</span>2.5.6<span class="tag">&lt;/<span class="title">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>这样会将需要的包都引入进来。</p>
+<h2 id="需要注意的事项">需要注意的事项</h2>
+<p>需要在配置文件中开启aspect功能，以一个简单的实例来说明问题，如下所示。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--app.xml--&gt;</span></div><div class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>  </div><div class="line">  </div><div class="line"><span class="tag">&lt;<span class="title">beans</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.springframework.org/schema/beans"</span>  </span></div><div class="line">         <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span>  </div><div class="line">         <span class="attribute">xmlns:aop</span>=<span class="value">"http://www.springframework.org/schema/aop"</span>  </div><div class="line">         <span class="attribute">xmlns:tx</span>=<span class="value">"http://www.springframework.org/schema/tx"</span>  </div><div class="line">         <span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd  </span></div><div class="line">           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd  </div><div class="line">           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd"&gt;  </div><div class="line">     <span class="tag">&lt;<span class="title">aop:aspectj-autoproxy</span>/&gt;</span>          </div><div class="line">      </div><div class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"realWork"</span> <span class="attribute">class</span>=<span class="value">"com.lipan.user.impl.RealWork"</span>/&gt;</span>  </div><div class="line">     <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"throwableRealWork"</span> <span class="attribute">class</span>=<span class="value">"com.lipan.user.impl.ThrowingRealWork"</span>/&gt;</span>  </div><div class="line">    <span class="tag">&lt;<span class="title">bean</span> <span class="attribute">id</span>=<span class="value">"workAdvice"</span> <span class="attribute">class</span>=<span class="value">"com.lipan.aspectj.SampleAspectAdvice"</span> /&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="title">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>其中<code><aop:aspectj-autoproxy></aop:aspectj-autoproxy></code>表示开启自动代理。</p>
+<p>在advice文件中要定义pointcut，同时定义各种advice，各种advice会引用pointcut。如以下代码所示。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="javadoc">/**</span></div><div class="line"> * author:lipan.lp</div><div class="line"> * date:2014.12.10</div><div class="line"> * file: SampleAspectAdvice.java</div><div class="line"> * */</div><div class="line"><span class="keyword">package</span> com.lipan.aspectj;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.After;</div><div class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.AfterReturning;</div><div class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.AfterThrowing;</div><div class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Around;</div><div class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Aspect;</div><div class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Before;</div><div class="line"><span class="keyword">import</span> org.aspectj.lang.annotation.Pointcut;</div><div class="line"><span class="keyword">import</span> org.aspectj.lang.ProceedingJoinPoint;</div><div class="line"></div><div class="line"><span class="annotation">@Aspect</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleAspectAdvice</span> </span>{</div><div class="line">	<span class="annotation">@Pointcut</span>(<span class="string">"execution(* doRealWork*(..))"</span>)</div><div class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title">doRealWorkPoint</span>(){};</div><div class="line">	</div><div class="line">	<span class="annotation">@Before</span>(<span class="string">"doRealWorkPoint()"</span>)</div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doBefore</span>(){</div><div class="line">		System.out.println(<span class="string">"do Something before real work \n"</span>);</div><div class="line">	}</div><div class="line">	</div><div class="line">	<span class="annotation">@After</span>(<span class="string">"doRealWorkPoint()"</span>)</div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAfter</span>(){</div><div class="line">		System.out.println(<span class="string">"do something after real work \n"</span>);</div><div class="line">	}</div><div class="line">	</div><div class="line">	<span class="annotation">@Around</span>(<span class="string">"doRealWorkPoint()"</span>)</div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAround</span>(ProceedingJoinPoint pjp) <span class="keyword">throws</span> Throwable{</div><div class="line">		System.out.println(<span class="string">"around 前植入"</span>);</div><div class="line">		pjp.proceed();</div><div class="line">		System.out.println(<span class="string">"around后植入"</span>);</div><div class="line">	}</div><div class="line">	</div><div class="line">	<span class="annotation">@AfterReturning</span>(<span class="string">"doRealWorkPoint()"</span>)</div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAfterReturning</span>(){</div><div class="line">		System.out.println(<span class="string">"do something after returning"</span>);</div><div class="line">	}</div><div class="line">	</div><div class="line">	<span class="annotation">@AfterThrowing</span>(<span class="string">"doRealWorkPoint()"</span>)</div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doAfterThrowing</span>(){</div><div class="line">		System.out.println(<span class="string">"do something after throwing"</span>);</div><div class="line">	}</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>以上代码需要注意的是PointCut的定义方法，同时被advice引用时是doRealWorkPoint()而不是doRealWorkPoint。</p>
+<p>被织入的代码如下：<br>首先是Interface ：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="javadoc">/**</span></div><div class="line"> * author:lipan.lp</div><div class="line"> * date:2014.12.10</div><div class="line"> * file: IRealWork.java</div><div class="line"> * */</div><div class="line"><span class="keyword">package</span> com.lipan.user;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IRealWork</span> </span>{</div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doRealWork</span>() <span class="keyword">throws</span> Exception;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>其次是一个实现，测试基本功能</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="javadoc">/**</span></div><div class="line"> * author:lipan.lp</div><div class="line"> * date:2014.12.10</div><div class="line"> * file: RealWork.java</div><div class="line"> * */</div><div class="line"><span class="keyword">package</span> com.lipan.user.impl;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.lipan.user.IRealWork;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RealWork</span> <span class="keyword">implements</span> <span class="title">IRealWork</span> </span>{</div><div class="line"></div><div class="line">	<span class="annotation">@Override</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doRealWork</span>() <span class="keyword">throws</span> Exception{</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		System.out.println(<span class="string">"do some real work "</span>);</div><div class="line">	}</div><div class="line"></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>另外是一个抛出异常的实现，测试afterThrowing这个advice</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="javadoc">/**</span></div><div class="line"> * author:lipan.lp</div><div class="line"> * date:2014.12.10</div><div class="line"> * file: ThrowingRealWork.java</div><div class="line"> * */</div><div class="line"><span class="keyword">package</span> com.lipan.user.impl;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.lipan.user.IRealWork;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThrowingRealWork</span> <span class="keyword">implements</span> <span class="title">IRealWork</span> </span>{</div><div class="line"></div><div class="line">	<span class="annotation">@Override</span></div><div class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doRealWork</span>() <span class="keyword">throws</span> Exception {</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> Exception();</div><div class="line">	}</div><div class="line">	</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>最后一个测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="javadoc">/**</span></div><div class="line"> * author:lipan.lp</div><div class="line"> * date:2014.12.10</div><div class="line"> * file: TestAspectJ.java</div><div class="line"> * */</div><div class="line"><span class="keyword">package</span> com.lipan.test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.BeanFactory;</div><div class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.lipan.user.IRealWork;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAspectJ</span> </span>{</div><div class="line"></div><div class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(String[] args) {</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		BeanFactory context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"app.xml"</span>);</div><div class="line">		IRealWork realWork = (IRealWork) context.getBean(<span class="string">"realWork"</span>);</div><div class="line">		IRealWork trealWork = (IRealWork) context.getBean(<span class="string">"throwableRealWork"</span>);</div><div class="line">		</div><div class="line">		<span class="keyword">try</span> {</div><div class="line">			realWork.doRealWork();</div><div class="line">			System.out.println(<span class="string">"\nstart to test Throwing\n"</span>);</div><div class="line">			trealWork.doRealWork();</div><div class="line">		} <span class="keyword">catch</span> (Exception e) {</div><div class="line">			<span class="comment">// TODO Auto-generated catch block</span></div><div class="line">		}		</div><div class="line">	}</div><div class="line"></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>最后输出如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">do</span> Something before real work </div><div class="line">around 前植入</div><div class="line"><span class="keyword">do</span> some real work </div><div class="line"><span class="keyword">do</span> something after real work</div><div class="line">around后植入</div><div class="line"><span class="keyword">do</span> something after returning</div><div class="line"></div><div class="line">start to test Throwing</div><div class="line"></div><div class="line"><span class="keyword">do</span> Something before real work </div><div class="line">around 前植入</div><div class="line"><span class="keyword">do</span> something after real work</div><div class="line"><span class="keyword">do</span> something after throwing</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/10/AspectJ/" data-id="8858uejumrlfgtlz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-classloader-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/02/classloader-1/" class="article-date">
+  <time datetime="2014-12-02T09:42:09.000Z" itemprop="datePublished">12月 2 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/02/classloader-1/">Java类加载机制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="#">#</h2>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/02/classloader-1/" data-id="u07hvyn1dd61ll4v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-classloader" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/02/classloader/" class="article-date">
+  <time datetime="2014-12-02T09:39:15.000Z" itemprop="datePublished">12月 2 2014</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: Java类加载机制<br>date: 2014-12-02 17:42:09</p>
+<h2 id="tags:JVM">tags:JVM</h2>
+<h3 id="什么是类加载">什么是类加载</h3>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/02/classloader/" data-id="29l8qzg27btwwcpl" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-First-Blood" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/11/21/First-Blood/" class="article-date">
@@ -182,7 +324,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -192,6 +334,18 @@
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2014/12/10/AspectJ/">基于注解的Aspect使用</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/02/classloader-1/">Java类加载机制</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/02/classloader/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2014/11/21/First-Blood/">回调函数</a>
