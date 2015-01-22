@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Archives: 2015 | 曾见绝美的阳光</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="虽千万人吾往矣">
+<meta property="og:type" content="website">
+<meta property="og:title" content="曾见绝美的阳光">
+<meta property="og:url" content="http://yoursite.com/archives/2015/">
+<meta property="og:site_name" content="曾见绝美的阳光">
+<meta property="og:description" content="虽千万人吾往矣">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="曾见绝美的阳光">
+<meta name="twitter:description" content="虽千万人吾往矣">
+
+  
+    <link rel="alternative" href="/atom.xml" title="曾见绝美的阳光" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">曾见绝美的阳光</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">桓澜的博客</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="submit" value="&#xF002;" class="search-form-submit"><input type="hidden" name="q" value="site:http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-log4j" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/22/log4j/" class="article-date">
+  <time datetime="2015-01-22T02:24:02.000Z" itemprop="datePublished">1月 22 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: log4J使用总结<br>date: 2015/01/22<br>tag: log4j</p>
+<h2 id="#">#</h2>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/22/log4j/" data-id="nlaz10f9o2ej31u7" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-New Document" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/19/New Document/" class="article-date">
+  <time datetime="2015-01-19T13:52:44.000Z" itemprop="datePublished">1月 19 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: maven deploy </p>
+<h3 id="deployb步骤">deployb步骤</h3>
+<p>先发主pom<br>注意：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">distributionManagement</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">repository</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">id</span>&gt;</span>releases<span class="tag">&lt;/<span class="title">id</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">url</span>&gt;</span>http://mvnrepo.taobao.ali.com:8081/nexus/content/repositories/releases/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">repository</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">snapshotRepository</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">id</span>&gt;</span>snapshots<span class="tag">&lt;/<span class="title">id</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">url</span>&gt;</span>http://mvnrepo.taobao.ali.com:8081/nexus/content/repositories/snapshots/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">snapshotRepository</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">distributionManagement</span>&gt;</span></div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/19/New Document/" data-id="b0cagxf51xolkshw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webx-vital" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/18/webx-vital/" class="article-date">
+  <time datetime="2015-01-18T14:53:11.000Z" itemprop="datePublished">1月 18 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>freezeConfiguration</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/18/webx-vital/" data-id="8s6vb22rbhu55uiz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-MTOP使用接入" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/15/MTOP使用接入/" class="article-date">
+  <time datetime="2015-01-15T14:24:55.000Z" itemprop="datePublished">1月 15 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="MTOP是什么？">MTOP是什么？</h3>
+<p>无线端不能直接调用http接口，集团内部是走MTOP的接口。它替我们完成了权限校验，参数绑定等工作。</p>
+<h3 id="怎么接入？">怎么接入？</h3>
+<ul>
+<li><a href="http://www.atatech.org/articles/10746" target="_blank" rel="external">最全的MTOP文档(MTOP用户文档)</a></li>
+<li><a href="http://confluence.taobao.ali.com/pages/viewpage.action?pageId=222895399" target="_blank" rel="external">http服务接入MTOP(官方CF空间)</a></li>
+<li><a href="http://www.atatech.org/article/detail/10616/0" target="_blank" rel="external">服务提供方需配置MTOP(虽然不合理，但是目前是这样的)</a></li>
+<li><a href="参考接入http服务">hsf服务绑定</a><ul>
+<li><a href="http://www.atatech.org/articles/10795" target="_blank" rel="external">hsf返回值绑定</a></li>
+<li>hsf参数绑定<ul>
+<li>map绑定的话虽然没有业务含义，但是可以的，传入map的json格式</li>
+<li>POJO绑定的话将字段和api的参数绑定</li>
+<li>MtopContext是一个ThreadLocal的变量，虽然可以再hsf服务中直接调用，但是最好还是不要使用，最好的办法是在MTop的配置页面中绑定。这个可以参考我的mtop.taobao.reserveOperateFacade.reserve接口。<br><img src="" alt="dsfa"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="后记">后记</h3>
+<p>之后需了解一下http服务怎么接入。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/15/MTOP使用接入/" data-id="8rg3okhv5eje9u47" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-webx-project-build" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/14/webx-project-build/" class="article-date">
+  <time datetime="2015-01-14T05:42:25.000Z" itemprop="datePublished">1月 14 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: webx搭建工作<br>date: 2015-01-15 21:03:35<br>tags: webx</p>
+<h2 id="缘起">缘起</h2>
+<p>由于在阿里没有自己从零搭建过一个全新的webx的系统，这次有机会自己搭了一个。遇到了诸多坑。记录一下。</p>
+<h3 id="deploy的时候的坑">deploy的时候的坑</h3>
+<p>deploy工程里面主要有两个文件，一个是pom.xml，</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--pom.xml--&gt;</span></div><div class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">project</span> <span class="attribute">xmlns</span>=<span class="value">"http://maven.apache.org/POM/4.0.0"</span> <span class="attribute">xmlns:xsi</span>=<span class="value">"http://www.w3.org/2001/XMLSchema-instance"</span></span></div><div class="line">	<span class="attribute">xsi:schemaLocation</span>=<span class="value">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</div><div class="line">	<span class="tag">&lt;<span class="title">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="title">modelVersion</span>&gt;</span></div><div class="line">	 <span class="tag">&lt;<span class="title">parent</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="title">groupId</span>&gt;</span>com.tmall.mppweb<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>mppweb<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="title">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="title">version</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="title">parent</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>deploy<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="title">packaging</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">name</span>&gt;</span>building tgz package<span class="tag">&lt;/<span class="title">name</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="title">version</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">build</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">finalName</span>&gt;</span>mppweb<span class="tag">&lt;/<span class="title">finalName</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">plugins</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">plugin</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>maven-assembly-plugin<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="title">configuration</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="title">descriptors</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="title">descriptor</span>&gt;</span>src/main/assembly/assembly.xml<span class="tag">&lt;/<span class="title">descriptor</span>&gt;</span></div><div class="line">					<span class="tag">&lt;/<span class="title">descriptors</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">plugins</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">build</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">project</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>一个是assembly.xml,</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--assembly.xml--&gt;</span></div><div class="line"><span class="pi">&lt;?xml version="1.0" encoding="GBK"?&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">assembly</span></span></div><div class="line">	xmlns="http://<span class="attribute">maven.apache.org</span>/<span class="attribute">plugins</span>/<span class="attribute">maven-assembly-plugin</span>/<span class="attribute">assembly</span>/<span class="attribute">1.1.1</span>"&gt;</div><div class="line">	<span class="tag">&lt;<span class="title">id</span>&gt;</span><span class="tag">&lt;/<span class="title">id</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">baseDirectory</span>&gt;</span>mppweb.war<span class="tag">&lt;/<span class="title">baseDirectory</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">formats</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">format</span>&gt;</span>tar.gz<span class="tag">&lt;/<span class="title">format</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">formats</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="title">fileSets</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">fileSet</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">directory</span>&gt;</span>../web/target/mppweb-web<span class="tag">&lt;/<span class="title">directory</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">outputDirectory</span>&gt;</span><span class="tag">&lt;/<span class="title">outputDirectory</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">includes</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="title">include</span>&gt;</span>**/**<span class="tag">&lt;/<span class="title">include</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="title">includes</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">fileSet</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">fileSets</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">assembly</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>其中，pom.xml里面finalName必须和应用名一样（这个必须），同时最好保持和assembly.xml里面的baseDirectory里面保持一致。否则会提示，“ERROR: /home/admin/mppweb/target/mppweb.tgz NOT EXISTS”已我的mppweb应用为例，pom.xml里面finalName必须为mppweb,assembly.xml里面baseDirectory为mppweb.war(有war后缀)。同时，assembly.xml里面directory必须保证和web工程打包生成的名字一样，即与web工程里面pom.xml里面配置的finalName一样。这里需要提到一点，那就是工程里面pom.xml中finalName表明了最终生成的包名（不带后缀，后缀由打包类型决定），如果不指定这个finalName,则打包的时候会带上版本信息（这个当时是一个大坑，因为这样的话deploy的时候directory必须跟上后缀，这显然是不好的）。<br>另外一个大坑值得一提，那就是他娘的，在打包的时候一定要设置自动解压，即在web工程的pom.xml配置插件的时候要如下设置（exploding设为true）,否则打包的时候就会失败提示“you must set at least one file maven assembly”，因为找不到可以打包的对象。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--from web/pom.xml--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">plugin</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="title">groupId</span>&gt;</span>com.alibaba.citrus.tool<span class="tag">&lt;/<span class="title">groupId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="title">artifactId</span>&gt;</span>${autoconfig-plugin-artifactId}<span class="tag">&lt;/<span class="title">artifactId</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="title">version</span>&gt;</span>${autoconfig-plugin-version}<span class="tag">&lt;/<span class="title">version</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="title">configuration</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="title">exploding</span>&gt;</span>true<span class="tag">&lt;/<span class="title">exploding</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="title">executions</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="title">execution</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="title">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="title">phase</span>&gt;</span></div><div class="line">						<span class="tag">&lt;<span class="title">goals</span>&gt;</span></div><div class="line">							<span class="tag">&lt;<span class="title">goal</span>&gt;</span>autoconfig<span class="tag">&lt;/<span class="title">goal</span>&gt;</span></div><div class="line">						<span class="tag">&lt;/<span class="title">goals</span>&gt;</span></div><div class="line">					<span class="tag">&lt;/<span class="title">execution</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="title">executions</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="title">plugin</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="部署的时候的坑">部署的时候的坑</h3>
+<p>webx部署的时候好多坑，一个是aone的坑，这个有一个ata帖子需时刻牢记：<a href="http://www.atatech.org/articles/19719" target="_blank" rel="external">项目迁移到aone上遇到的一些问题总结</a>。<br>webx部署的时候最后一步是preload.sh自检，其实就是看能不能访问ip:7001/checkpreload.htm时候能访问且里面是否含有success字符串。其中，7001这个端口和checkpreload.htm以及success这个字符串都是可以在preload.sh里面配置的。<br>如果自检不通过，有两种情况，其一，ip:7001/checkpreload.htm能访问，但是提示找不到template,这个一般是因为在web.xml里面，没有将自检页面排除在WebxFrameworkFilter的过滤路径之外。怎么排除呢，下面是实例代码。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--From web.xml--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">filter</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>webx<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">filter-class</span>&gt;</span>com.alibaba.citrus.webx.servlet.WebxFrameworkFilter<span class="tag">&lt;/<span class="title">filter-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">filter</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">filter-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>mdc<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">filter-mapping</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">filter-mapping</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">filter-name</span>&gt;</span>webx<span class="tag">&lt;/<span class="title">filter-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span><span class="tag">&lt;<span class="title">init-param</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param-name</span>&gt;</span>excludes<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param-value</span>&gt;</span></div><div class="line">				*.css,*.js,*.jpg,*.gif,*.png</div><div class="line">				<span class="comment">&lt;!-- 需要被“排除”的URL路径，以逗号分隔，如/static, *.jpg。适合于映射静态页面、图片。 --&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">init-param</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param-name</span>&gt;</span>passthru<span class="tag">&lt;/<span class="title">param-name</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="title">param-value</span>&gt;</span></div><div class="line">				/checkpreload.htm</div><div class="line">			<span class="tag">&lt;/<span class="title">param-value</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="title">init-param</span>&gt;</span></div><div class="line">		</div><div class="line">	<span class="tag">&lt;/<span class="title">filter-mapping</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<p>当然，还有一种隐藏的错误会让你更加痛苦，那就是在url经过filter之前，会被由webx-component-and-root.xml中定义的mapping关系映射到其他的路径，比如这次我就踩了个坑，因为从头搭建一个webx工程的风险太大，完全不知道哪些是必要的，所以只能从petstore开始修剪，然后webx-component-and-root.xml里面有句话就被我忽略了。下面一段xml配置中，htm到vm的映射就把我坑惨了。我当时一直后台日志报错提示找不到screen/checkpreload.vm，当时我就奇怪了，我明明是.htm的，这说明我的url被webx改动了，具体改动肯定是由某个映射决定的。另外一个就是screen前缀都出来了说明走了pipeline,而我在web.xml的WebxFrameworkFilter里面排除过，说明排除得不成功（最后才发现如果要排也是排checkpreload.vm）。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 名称查找规则。这里有按照模板查找目标,也有按照module进行查找 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">services:mapping-rules</span></span></div><div class="line">	xmlns="http://<span class="attribute">www.alibaba.com</span>/<span class="attribute">schema</span>/<span class="attribute">services</span>/<span class="attribute">mapping-rules</span>"&gt;</div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- External target name =&gt; Internal target name --&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 请求名到目标名,因为在webx2里面,大家依靠的是按照请求的target来进行是否登录过滤的,这里需要修改的 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">extension-rule</span> <span class="attribute">id</span>=<span class="value">"extension.input"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--</span></div><div class="line">			默认后缀 ,在webx3框架里,可以是无后缀的,作者的意思是希望大家不要认为请求.htm就一定是对应.vm </div><div class="line">			&lt;mapping extension="" to="" /&gt;</div><div class="line">		--&gt;</div><div class="line">		<span class="comment">&lt;!--</span></div><div class="line">			这一段是JSP的配置</div><div class="line">			 &lt;mapping extension="jhtml" to="" /&gt; </div><div class="line">			 &lt;mapping extension="jsp" to="" /&gt;</div><div class="line">			 &lt;mapping extension="php" to="" /&gt;</div><div class="line">		--&gt;</div><div class="line">		<span class="comment">&lt;!-- Velocity的配置 --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">mapping</span> <span class="attribute">extension</span>=<span class="value">"htm"</span> <span class="attribute">to</span>=<span class="value">"vm"</span> /&gt;</span><span class="comment">&lt;!--这句话把我坑惨了，完全不需要--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">mapping</span> <span class="attribute">extension</span>=<span class="value">"vhtml"</span> <span class="attribute">to</span>=<span class="value">"vm"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">extension-rule</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Internal target name =&gt; External target name --&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 这里是目标的名字到页面上的链接的名字,一般都是vm到htm --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">extension-rule</span> <span class="attribute">id</span>=<span class="value">"extension.output"</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- 默认后缀</span></div><div class="line">		&lt;mapping extension="" to="htm" /&gt;</div><div class="line">		 --&gt;</div><div class="line">		<span class="comment">&lt;!--</span></div><div class="line">			JSP的配置</div><div class="line">			 &lt;mapping extension="jhtml" to="jhtml" /&gt; </div><div class="line">			 &lt;mapping extension="jsp" to="jhtml" /&gt; </div><div class="line">			&lt;mapping extension="php" to="jhtml" /&gt;</div><div class="line">		--&gt;</div><div class="line">		<span class="comment">&lt;!-- Velocity --&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">mapping</span> <span class="attribute">extension</span>=<span class="value">"htm"</span> <span class="attribute">to</span>=<span class="value">"htm"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">mapping</span> <span class="attribute">extension</span>=<span class="value">"vhtml"</span> <span class="attribute">to</span>=<span class="value">"htm"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="title">mapping</span> <span class="attribute">extension</span>=<span class="value">"vm"</span> <span class="attribute">to</span>=<span class="value">"htm"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="title">extension-rule</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Target name =&gt; Action module name --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">direct-module-rule</span> <span class="attribute">id</span>=<span class="value">"action"</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Target name =&gt; Screen module name (*.do) --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">direct-module-rule</span> <span class="attribute">id</span>=<span class="value">"screen.notemplate"</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Target name =&gt; Screen module name (*.jsp, *.vm) --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">fallback-module-rule</span> <span class="attribute">id</span>=<span class="value">"screen"</span> <span class="attribute">moduleType</span>=<span class="value">"screen"</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Target name =&gt; Screen template name --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">direct-template-rule</span> <span class="attribute">id</span>=<span class="value">"screen.template"</span></span></div><div class="line">		<span class="attribute">templatePrefix</span>=<span class="value">"screen"</span> /&gt;</div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Target name =&gt; Layout template name --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">fallback-template-rule</span> <span class="attribute">id</span>=<span class="value">"layout.template"</span></span></div><div class="line">		<span class="attribute">templatePrefix</span>=<span class="value">"layout"</span> /&gt;</div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Target name =&gt; Control module name (setControl method) --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">direct-module-rule</span> <span class="attribute">id</span>=<span class="value">"control.notemplate"</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Target name =&gt; Control module name (setTemplate method) --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">fallback-module-rule</span> <span class="attribute">id</span>=<span class="value">"control"</span> <span class="attribute">moduleType</span>=<span class="value">"control"</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- Target name =&gt; Control template name --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="title">direct-template-rule</span> <span class="attribute">id</span>=<span class="value">"control.template"</span></span></div><div class="line">		<span class="attribute">templatePrefix</span>=<span class="value">"control"</span> /&gt;</div><div class="line"></div><div class="line">   <span class="tag">&lt;/<span class="title">services:mapping-rules</span>&gt;</span></div></pre></td></tr></table></figure>
+
+<h3 id="删减petstore的时候遇到的坑">删减petstore的时候遇到的坑</h3>
+<p>首先，不管是webx.xml还是webx-**.xml里面的</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--From webx.xml--&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">services:webx2-context</span> <span class="attribute">xmlns</span>=<span class="value">"http://www.alibaba.com/schema/webx2-services"</span> /&gt;</span></div></pre></td></tr></table></figure>
+
+<p>都不要删，不然会提示找不到，具体来说就是执行到pipeline时执行<prepareforwebx2>时，会提示“org.springframework.beans.factory.NoSuchBeanDefinitionException: No unique bean of type [com.alibaba.citrus.webx2.context.impl.Webx2ServiceContextImpl] is defined: Unsatisfied dependency of type [class com.alibaba.citrus.webx2.context.impl.Webx2ServiceContextImpl]: expected at least 1 matching bean”的错误</prepareforwebx2></p>
+<h3 id="环境升级">环境升级</h3>
+<p><a href="http://docs.alibaba-inc.com:8090/pages/viewpage.action?pageId=239009803" target="_blank" rel="external">jdk和tomcat升级</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/14/webx-project-build/" data-id="tghvqrhmb3331ksw" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ali_java_public_workflow" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/08/ali_java_public_workflow/" class="article-date">
+  <time datetime="2015-01-08T02:44:36.000Z" itemprop="datePublished">1月 8 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title : 阿里java从新建到发布的流程</p>
+<h3 id="环境准备">环境准备</h3>
+<ul>
+<li><a href="http://aone.alibaba-inc.com/aone2/application/new?spm=0.0.0.0.twT73P" target="_blank" rel="external">申请新应用</a></li>
+<li><a href="">申请新分支</a></li>
+<li><a href="">申请预发和线上机器</a><h1 id="#">#</h1>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/08/ali_java_public_workflow/" data-id="8wvts0kpl03qlcjd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven-collection" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/06/maven-collection/" class="article-date">
+  <time datetime="2015-01-06T03:27:17.000Z" itemprop="datePublished">1月 6 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title: maven常用功能</p>
+<p>tag: maven</p>
+<h3 id="maven工具">maven工具</h3>
+<ul>
+<li><a href="http://www.atatech.org/articles/23981" target="_blank" rel="external">检查maven重复依赖</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/06/maven-collection/" data-id="x3bmoku1bgsf40f5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven-assembly" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/05/maven-assembly/" class="article-date">
+  <time datetime="2015-01-05T13:06:14.000Z" itemprop="datePublished">1月 5 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/05/maven-assembly/">maven-assembly</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/05/maven-assembly/" data-id="x8ig3b8yy6zsbah0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-maven-series" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/05/maven-series/" class="article-date">
+  <time datetime="2015-01-05T13:03:35.000Z" itemprop="datePublished">1月 5 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/05/maven-series/">Maven学习系列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/05/maven-series/" data-id="09esma3eei1p9tms" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-worknote" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/04/worknote/" class="article-date">
+  <time datetime="2015-01-04T06:31:00.000Z" itemprop="datePublished">1月 4 2015</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/04/worknote/">工作中需要用到的常见网址</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="ItemCenter接入">ItemCenter接入</h3>
+<ul>
+<li><a href="http://ic.taobao.org/#!/docs/17" target="_blank" rel="external">ItemCenterPlatform的如何配置的官方页面</a></li>
+<li><a href="http://auction-dev.taobao.org:9999/#item" target="_blank" rel="external">商品360查询工具</a></li>
+<li><a href="http://jira.taobao.ali.com/browse/IC-2429" target="_blank" rel="external">IC接入文档</a></li>
+</ul>
+<h3 id="Tair接入">Tair接入</h3>
+<ul>
+<li><a href="http://baike.corp.taobao.com/index.php/Tair" target="_blank" rel="external">Tair百科—使用Tair建议先看百科</a></li>
+<li>Tair问题可以多问问楚舒</li>
+<li><a href="http://monitor.tair.taobao.net:8080/?spm=0.0.0.0.cWWxqb" target="_blank" rel="external">Tair集群有监控功能，选择所需要的集群，进入自己的集群，进行查询</a></li>
+</ul>
+<h3 id="TDDL接入">TDDL接入</h3>
+<ul>
+<li><a href="http://gitlab.alibaba-inc.com/middleware/tddl5/wikis/QuickStart" target="_blank" rel="external">TDDL wiki</a></li>
+<li><a href="http://10.249.193.123/tddl.php" target="_blank" rel="external">数据源监控，能通过appName查看数据源信息</a></li>
+</ul>
+<h3 id="TTD接入">TTD接入</h3>
+<ul>
+<li><a href="http://gitlab.alibaba-inc.com/tianyao.myc/dispatcher-client/wikis/interface" target="_blank" rel="external">TTD wiki</a></li>
+<li><a href="http://www.atatech.org/article/detail/13524/0" target="_blank" rel="external">天耀 TTD架构</a></li>
+<li><a href="http://10.218.139.193/frame/index.htm" target="_blank" rel="external">TTD 监控台</a></li>
+</ul>
+<h3 id="HSF接入">HSF接入</h3>
+<ul>
+<li><a href="http://hsf.taobao.net/hsf/index.html" target="_blank" rel="external">HSF 终极网站</a></li>
+<li><a href="http://www.atatech.org/articles/24108" target="_blank" rel="external">HSF 一个简单的例子</a></li>
+</ul>
+<h3 id="Maven库地址">Maven库地址</h3>
+<ul>
+<li><a href="http://mvnrepo.taobao.ali.com/nexus/index.html#welcome" target="_blank" rel="external">内部maven库地址</a></li>
+</ul>
+<h3 id="PE工作台">PE工作台</h3>
+<ul>
+<li><a href="https://pesystem.alibaba-inc.com/app/info/a17177#/app" target="_blank" rel="external">PE 工作台，可以查看预发机器的ip</a></li>
+</ul>
+<h3 id="AOPS运维客户端">AOPS运维客户端</h3>
+<ul>
+<li><a href="http://aops.alibaba-inc.com/workflow/account/?xdatatype=&amp;INSTS=20179646" target="_blank" rel="external">AOPS运维客户端,主要用于申请机器权限</a></li>
+</ul>
+<h3 id="Aone_使用">Aone 使用</h3>
+<ul>
+<li><a href="http://aone.alibaba-inc.com/aone2/diana/search" target="_blank" rel="external">Aone 配置查询，一般用以借鉴别人怎么配置</a></li>
+<li><a href="http://aone.alibaba-inc.com/aone2/confluence/aoneHelper" target="_blank" rel="external">Aone2 使用文档</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/01/04/worknote/" data-id="riyskbhzhu13k9xl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/淘系专用工具/">淘系专用工具</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/archives/2015/page/2/">2</a><a class="extend next" rel="next" href="/archives/2015/page/2/">Next &raquo;</a>
+    </nav>
+  
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-java/">spring java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/淘系专用工具/">淘系专用工具</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java/" style="font-size: NaNpx;">java</a><a href="/tags/spring-java/" style="font-size: NaNpx;">spring java</a><a href="/tags/淘系专用工具/" style="font-size: NaNpx;">淘系专用工具</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/01/22/log4j/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/19/New Document/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/18/webx-vital/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/15/MTOP使用接入/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/14/webx-project-build/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 lipan<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>
